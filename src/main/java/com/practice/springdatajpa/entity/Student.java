@@ -8,7 +8,13 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "student_table")
+@Table(name =
+        "student_table",
+        uniqueConstraints = @UniqueConstraint(
+                name = "emailid_unique",
+                columnNames = "email_address"
+        )
+)
 public class Student {
     @Id
     @SequenceGenerator(
@@ -23,7 +29,10 @@ public class Student {
     private Long studentId;
     private String firstName;
     private String lastName;
-    @Column(name = "email_address")
+    @Column(name =
+            "email_address",
+            nullable = false
+    )
     private String emailId;
     private String guardianName ;
     private String guardianEmail;
