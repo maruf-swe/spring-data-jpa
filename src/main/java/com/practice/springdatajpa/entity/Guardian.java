@@ -1,5 +1,8 @@
 package com.practice.springdatajpa.entity;
 
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +12,22 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@AttributeOverrides({
+        @AttributeOverride(
+                name = "name",
+                column = @Column(name = "guardian_name")
+        ),
+        @AttributeOverride(
+                name = "email",
+                column = @Column(name = "gurdian_email")
+        ),
+        @AttributeOverride(
+                name = "mobile",
+                column = @Column(name = "guardian_mobile")
+        )
+})
 public class Guardian {
     private String name ;
-    private String guardianEmail;
-    private String guardianMobile;
+    private String email;
+    private String mobile;
 }
