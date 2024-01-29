@@ -19,6 +19,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findByLastNameNotNull();
 
     List<Student> findByGuardianName(String guardianName);
-    @Query("select s from Student s")
+    
+    //jpql
+    @Query("select s from Student s where s.emailId=?1")
     Student getStudentByEmailAddress(String EmailId);
 }
