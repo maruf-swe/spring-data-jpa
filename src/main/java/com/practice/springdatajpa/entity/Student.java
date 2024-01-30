@@ -8,8 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name =
-        "student_table",
+@Table(
+        name = "student_table",
         uniqueConstraints = @UniqueConstraint(
                 name = "emailid_unique",
                 columnNames = "email_address"
