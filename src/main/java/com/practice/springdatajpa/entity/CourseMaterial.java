@@ -1,6 +1,6 @@
 package com.practice.springdatajpa.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,4 +10,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CourseMaterial {
+    @Id
+    @SequenceGenerator(
+            name = "course_material_sequence",
+            sequenceName = "course_material_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "course_material_sequence"
+
+    )
+    private Long courseMaterialId;
+    private String url;
 }
