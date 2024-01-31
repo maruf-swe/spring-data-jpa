@@ -23,4 +23,11 @@ public class CourseMaterial {
     )
     private Long courseMaterialId;
     private String url;
+
+    @OneToOne
+    @JoinColumn(
+            name = "course_id",
+            referencedColumnName = "courseId"
+    )
+    private Course course;
 }
