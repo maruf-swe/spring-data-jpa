@@ -9,23 +9,20 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Course {
+public class Teacher {
+
     @Id
     @SequenceGenerator(
-            name = "course_sequence",
-            sequenceName = "course_sequence",
+            name = "teacher_sequence",
+            sequenceName = "teacher_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "course_sequence"
+            generator = "teacher_sequence"
     )
-    private Long courseId;
-    private String title;
-    private Integer credit;
+    private Long teacherId;
+    private String firstName;
+    private String lastName;
 
-    @OneToOne(
-            mappedBy = "course"
-    )
-    private CourseMaterial courseMaterial;
 }
